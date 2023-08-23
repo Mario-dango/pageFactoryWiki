@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: egg.tests.ApplicationTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 31.086 s - in egg.tests.ApplicationTest
