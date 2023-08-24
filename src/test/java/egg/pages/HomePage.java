@@ -19,8 +19,14 @@ public class HomePage extends BasePage{
     // TAG + CLASS_NAME
     @FindBy(css = "input#searchInput")
     private WebElement laBarraDeBusqueda;
+    // TAG + CLASS_NAME + ATTRIBUTE
+    @FindBy(css = "button.pure-button-primary-progressive[type='submit']")
+    private WebElement elBotonReGrozoDeWiki;
+    // TAG + ID
+    @FindBy(css = "h1#firstHeading")
+    private WebElement elTituloDelResultado;
 
-        // GETTERS  //
+    // GETTERS  //
     public WebElement getLaBarraDeBusqueda() {
         return this.laBarraDeBusqueda;
     }
@@ -28,4 +34,12 @@ public class HomePage extends BasePage{
     public String getTextElTitulo() {
         return this.elTitulo.getText();
     }
+
+    public WebElement getElBotonReGrozoDeWiki() {
+        return this.elBotonReGrozoDeWiki;
+    }
+    public String getTextElTituloDelResultado() {
+        return this.elTituloDelResultado.getText();
+    }
+
 }

@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
     
     WebDriver myWebDriver;
-
+    //      Método Contructor       //
     public BasePage(WebDriver elDriverParaUsar){
         this.myWebDriver = elDriverParaUsar;
         PageFactory.initElements(this.myWebDriver, this);
