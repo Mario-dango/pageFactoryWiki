@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import egg.pages.HomePage;
+import egg.pages.WikiHomePage;
 import egg.pages.WikiViajesPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -35,12 +35,12 @@ public class BaseTest {
     static void afterAllMethods(){
     }                           
 
-    public HomePage getHomePage(){
-        return new HomePage(miDriver, "https://www.wikipedia.org/");
+    public WikiHomePage getHomePage(){
+        return new WikiHomePage(miDriver, "https://www.wikipedia.org/");
     }                    
 
-    public WikiViajesPage getWikiViajesPage(){
-        return new WikiViajesPage(miDriver, "https://www.wikivoyage.org/");
+    public WikiHomePage getWikiViajesPage(){
+        return new WikiHomePage(miDriver, "https://www.wikivoyage.org/");
     }
 
 }

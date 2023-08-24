@@ -27,4 +27,10 @@ public class BasePage {
         myWait.until(ExpectedConditions.visibilityOf(elementoParaPreguntar));
         return elementoParaPreguntar.isEnabled();
     }
+    
+    protected boolean estaSeleccionadoElElemento(WebElement elementoParaPreguntar){
+        WebDriverWait myWait = new WebDriverWait(myWebDriver, 8);
+        myWait.until(ExpectedConditions.visibilityOf(elementoParaPreguntar));
+        return elementoParaPreguntar.isSelected();
+    }
 }

@@ -1,5 +1,3 @@
-egg\tests\WikiTest.class
 egg\pages\BasePage.class
 egg\tests\BaseTest.class
-egg\pages\HomePage.class
 egg\tests\WikipediaSearchTest.class

@@ -1,10 +1,12 @@
 package egg.tests;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
-import egg.pages.HomePage;
+import egg.pages.WikiHomePage;
 import egg.pages.WikiViajesPage;
 
 public class WikiViajesTest extends BaseTest {
@@ -14,10 +16,11 @@ public class WikiViajesTest extends BaseTest {
     //  Prueba con el botón de buscar
     @Test
     public void lugaresDestacadosLosAndes() {
-        WikiViajesPage paginaPrincipal = getWikiViajesPage();
-        paginaPrincipal.getElLinkAHomePageEspaniol().click();
-        for (WebElement titulosDestacados : paginaPrincipal.getListaDeTitulosDeLugares()) {
-            if(titulosDestacados.getText().contains("Los Andes")){
+        WikiHomePage paginaPrincipal = getWikiViajesPage();
+        WikiViajesPage wikiViajesEspanio = paginaPrincipal.clickEnEspaniol();
+        List<String> tituloDeLugares = WikiViajesPage.getListaDeTitulosDeLugares();
+        for (String tituloDestacado : tituloDeLugares) {
+            if(tituloDestacado.contains("Los Andes")){
                 mySoftAssert.assertTrue(true);
             }
         }
@@ -26,9 +29,10 @@ public class WikiViajesTest extends BaseTest {
     
     @Test
     public void verificarTitulo() {
-        WikiViajesPage paginaPrincipal = getWikiViajesPage();
+        WikiHomePage paginaPrincipal = getWikiViajesPage();
         mySoftAssert.assertEquals(
-            "Wikivoyage\nFree travel guide", 
+            "Wikivoyage\r\n" + //
+            "La gu\u00EDa de viajes libre", 
             paginaPrincipal.getTextElTitulo()
             );
     }
