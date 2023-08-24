@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class WikiViajesPage extends BasePage{
     
-    private static List<String> listaTitulosDestacados = new ArrayList<String>();
+    private List<String> listaTitulosDestacados = new ArrayList<String>();
 
     //      Método constructor
     public WikiViajesPage(WebDriver elDriver) {

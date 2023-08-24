@@ -15,7 +15,7 @@ public class WikiSearchResultsPage extends BasePage {
     
     // TAG + ID
     @FindBy(css = "h1#firstHeading")
-    private WebElement tituloDelResultado;;
+    private WebElement tituloDelResultado;
 
     // GETTERS  //
     public String getTextElTituloDelResultado() {

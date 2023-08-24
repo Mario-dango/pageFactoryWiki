@@ -1,5 +1,8 @@
 package egg.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,13 +26,14 @@ public class WikiHomePage extends BasePage{
     // TAG + CLASS_NAME + ATTRIBUTE
     @FindBy(css = "button.pure-button-primary-progressive[type='submit']")
     private WebElement elBotonDeBuscar;
+    // TAG + CLASS_NAME
+    @FindBy(css = "a.suggestion-link")
+    private List<WebElement> listaDeResultados;
+
 
     // GETTERS or Interactions between objects  //
     public void sendToLaBarraDeBusqueda(String textoParaEnviar) {
         this.esVisibleElElemento(this.laBarraDeBusqueda);
-        if (textoParaEnviar.contains("\n")){
-            
-        }
         this.laBarraDeBusqueda.sendKeys(textoParaEnviar);
     }
 
@@ -49,10 +53,23 @@ public class WikiHomePage extends BasePage{
     }
 
     public WikiSearchResultsPage clickEnBuscar() {
+        this.esVisibleElElemento(elBotonDeBuscar);
+        this.estaHabilitadoElElemento(elBotonDeBuscar);
         this.elBotonDeBuscar.click();
         return new WikiSearchResultsPage(myWebDriver);
     }
     
+
+    public List<String> getListaDeResultados() {
+        List<String> listaDeResultadosText = new ArrayList<String>();
+        for (WebElement resultadoVisible : this.listaDeResultados) {
+            if(this.esVisibleElElemento(resultadoVisible)){
+                listaDeResultadosText.add(resultadoVisible.getText());
+            }
+        }
+        return listaDeResultadosText;
+    }
+
     //////////////////////!     WIKIVOYAGE HOME PAGE ///////////////////////!
     //      LOCATORS USING PAGEFACTORY      //
     // ID
@@ -60,11 +77,11 @@ public class WikiHomePage extends BasePage{
     private WebElement elLinkAHomePageEspaniol;
     
     //      METHODS AND INTERACTIONS BETWEEN OBJECTS        //
-    public WikiViajesPage clickEnEspaniol(){
+    public WikiSpanishPage clickEnEspaniol(){
         this.esVisibleElElemento(elBotonDeBuscar);
         this.estaHabilitadoElElemento(elBotonDeBuscar);
         this.elLinkAHomePageEspaniol.click();
-        return new WikiViajesPage(myWebDriver);
+        return new WikiSpanishPage(myWebDriver);
      }
 
 }
